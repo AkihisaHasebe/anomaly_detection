@@ -1,29 +1,27 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
-import torch.utils.data as data
-import torch.autograd as autograd
-import torch.nn.functional as F
-from torch.autograd import Variable
-
-import torchvision
-import torchvision.transforms as transforms
-from torchvision import datasets
-from torchvision.utils import make_grid, save_image
+import random
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
-from tqdm import tqdm
-from pathlib import Path
-from visdom import Visdom
-from PIL import Image
-import random
 import seaborn as sns
-
-from arcface_resnet34 import Resnet34
-from dataloader import ImageTransform, CreateDataset
+import torch
+import torch.autograd as autograd
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import torch.utils.data as data
+import torchvision
+import torchvision.transforms as transforms
+from PIL import Image
+from torch.autograd import Variable
+from torchvision import datasets
+from torchvision.utils import make_grid, save_image
+from tqdm import tqdm
+from visdom import Visdom
 
 import metrics
+from arcface_resnet34 import Resnet34
+from dataloader import CreateDataset, ImageTransform
 
 cuda = torch.cuda.is_available()
 if cuda:
